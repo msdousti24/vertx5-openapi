@@ -1,0 +1,35 @@
+openapi: 3.1.1
+info:
+  title: "test"
+  version: "1.0.0"
+
+paths:
+  /test:
+    get:
+      summary: Just a test endpoint
+      operationId: getTest
+      responses:
+        200:
+          description: success
+          content:
+            application/v0+json:
+              schema:
+                $ref: '#/components/schemas/TestResponseDeprecated'
+            application/v1+json:
+              schema:
+                $ref: '#/components/schemas/TestResponse'
+
+components:
+  schemas:
+    TestResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+    TestResponseDeprecated:
+      type: object
+      deprecated: true
+      properties:
+        name:
+          type: string
+
